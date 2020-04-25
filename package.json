@@ -28,7 +28,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "commander": "^5.0.0",
+    "commander": "^5.1.0",
     "path-loader": "^1.0.1",
     "source-map": "^0.7.3"
   },
