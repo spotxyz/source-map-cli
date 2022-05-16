@@ -1,3 +1,19 @@
+# Fork changes
+
+You can customize the HTTP request made when retrieving remote files. If `/.source-map-cli.json` exists and contains a key matching the origin of the URL then you can add headers to the request.
+
+Example:
+
+```json
+{
+  "https://example.com": {
+    "headers": {
+      "Cookie": "session=0123456789abcdef"
+    }
+  }
+}
+```
+
 # Source-map CLI
 
 Command-line interface to the [`source-map`](https://github.com/mozilla/source-map) module.

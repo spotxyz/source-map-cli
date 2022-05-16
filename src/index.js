@@ -1,11 +1,33 @@
 "use strict";
 
+const os = require("os");
+const fs = require("fs");
 const loader = require("path-loader");
 const sourceMap = require("source-map");
 const lineSlicer = require("./lineSlicer");
 
 function loadUri(path) {
-  return loader.load(path).then(JSON.parse);
+  return loader
+    .load(path, {
+      prepareRequest: prepareRequest,
+    })
+    .then(JSON.parse);
+}
+
+function prepareRequest(req, callback) {
+  const homedir = os.homedir();
+  const configPath = `${homedir}/.source-map-cli.json`;
+  if (fs.existsSync(configPath)) {
+    const config = JSON.parse(fs.readFileSync(configPath));
+    const url = new URL(req.url);
+    const originConfig = config[url.origin];
+    if (originConfig) {
+      for (const [key, value] of Object.entries(originConfig.headers)) {
+        req.set(key, value);
+      }
+    }
+  }
+  callback(null, req);
 }
 
 function getOriginalPositionFor(smc, line, column) {
