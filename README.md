@@ -14,6 +14,10 @@ Example:
 }
 ```
 
+Other changes:
+
+- Automatically adds `.map` to the path/URL if missing.
+
 # Source-map CLI
 
 Command-line interface to the [`source-map`](https://github.com/mozilla/source-map) module.

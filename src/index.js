@@ -45,6 +45,9 @@ function getSourceContentFor(smc, pos, options) {
 }
 
 function resolve(path, line, column, options) {
+  if (!path.endsWith(".map")) {
+    path += ".map";
+  }
   line = parseInt(line, 10);
   column = parseInt(column, 10);
   return loadUri(path)
