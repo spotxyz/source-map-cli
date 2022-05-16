@@ -19,6 +19,19 @@ Other changes:
 - Automatically adds `.map` to the path/URL if missing.
 - Line and column information can be passed in the same argument as the URL (common stacktrace format), e.g. `https://example.com/js/main.js.map:1:22012`
 
+Install fork with:
+
+```
+npm install -g git+https://github.com/spotxyz/source-map-cli.git
+```
+
+Verify you are using the new version:
+
+```
+$ source-map --version
+1.0.1
+```
+
 # Source-map CLI
 
 Command-line interface to the [`source-map`](https://github.com/mozilla/source-map) module.
