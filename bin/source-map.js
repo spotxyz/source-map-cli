@@ -8,7 +8,7 @@ const cli = require("../src");
 program.version(require("../package.json").version);
 
 program
-  .command("resolve <path> <line> <column>")
+  .command("resolve <path> [line] [column]")
   .description("Returns the original source's line and column")
   .option(
     "-c, --context [num]",

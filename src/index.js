@@ -1,5 +1,6 @@
 "use strict";
 
+const process = require("process");
 const os = require("os");
 const fs = require("fs");
 const loader = require("path-loader");
@@ -45,6 +46,18 @@ function getSourceContentFor(smc, pos, options) {
 }
 
 function resolve(path, line, column, options) {
+  if (line === undefined && column === undefined) {
+    const re = /:(\d+):(\d+)$/.exec(path);
+    if (!re) {
+      console.error(
+        "Line and column are missing. Either add them as arguments or append to the path with colon separators."
+      );
+      process.exit(1);
+    }
+    path = path.substring(0, re.index);
+    line = re[1];
+    column = re[2];
+  }
   if (!path.endsWith(".map")) {
     path += ".map";
   }

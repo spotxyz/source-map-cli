@@ -17,6 +17,7 @@ Example:
 Other changes:
 
 - Automatically adds `.map` to the path/URL if missing.
+- Line and column information can be passed in the same argument as the URL (common stacktrace format), e.g. `https://example.com/js/main.js.map:1:22012`
 
 # Source-map CLI
 
