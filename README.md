@@ -1,6 +1,6 @@
 # Fork changes
 
-You can customize the HTTP request made when retrieving remote files. If `/.source-map-cli.json` exists and contains a key matching the origin of the URL then you can add headers to the request.
+You can customize the HTTP request made when retrieving remote files. If `~/.source-map-cli.json` exists and contains a key matching the origin of the URL then you can add headers to the request.
 
 Example:
 
