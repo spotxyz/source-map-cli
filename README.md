@@ -29,7 +29,7 @@ Verify you are using the new version:
 
 ```
 $ source-map --version
-1.0.1
+1.0.2
 ```
 
 # Source-map CLI
